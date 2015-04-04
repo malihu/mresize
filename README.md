@@ -5,8 +5,8 @@ The plugin does not use any kind of timer(s) to detect size changes. It uses the
 
 #### Usage 
 
-`
+```
 $(selector).on("mresize",function(){
 	console.log($(this));
 });
-` 
+```
