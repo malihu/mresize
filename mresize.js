@@ -1,7 +1,7 @@
 /*
-== malihu element resize fn == 
-Version: 1.0.0 
-Plugin URI: - 
+== mresize jQuery plugin (event based element resize fn) == 
+Version: 1.0.1 
+Plugin URI: http://manos.malihu.gr/event-based-jquery-element-resize/ 
 Author: malihu
 Author URI: http://manos.malihu.gr
 License: MIT License (MIT)
@@ -48,7 +48,7 @@ THE SOFTWARE.
 			if(el.css("position")==="static") el.css("position","relative");
 			el
 				.append("<div class='resize' style='position:absolute; width:auto; height:auto; top:0; right:0; bottom:0; left:0; margin:0; padding:0; overflow:hidden; visibility:hidden; z-index:-1'><iframe style='width:100%; height:0; border:0; visibility:visible; margin:0' /><iframe style='width:0; height:100%; border:0; visibility:visible; margin:0' /></div>")
-				.data("mresize",{"w":el.width(),"h":el.height(),t:null})
+				.data("mresize",{"w":el.width(),"h":el.height(),t:null,throttle:100})
 				.find(".resize iframe").each(function(){
 					$(this.contentWindow || this).on("resize",function(){
 						var d=el.data("mresize");
@@ -58,7 +58,7 @@ THE SOFTWARE.
 								el.triggerHandler("mresize");
 								d.w=el.width();
 								d.h=el.height();
-							},100);
+							},d.throttle);
 						}
 					});
 				});

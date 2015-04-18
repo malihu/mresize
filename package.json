@@ -1,6 +1,6 @@
 {
   "name": "mresize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "malihu (http://manos.malihu.gr)",
   "description": "Event based jQuery element resize ",
   "license": "MIT",
@@ -23,7 +23,7 @@
   ],
   "jam": {
     "dependencies": {
-      "jquery": ">=1.6"
+      "jquery": ">=1.7"
     }
   }
 }
