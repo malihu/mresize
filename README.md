@@ -21,7 +21,7 @@ $(selector).on("mresizeind",function(){
 
 ### Updates
 
-event mresizeind watch size chages with margins and paddinds not only height and width change.
+event ```mresizeind``` watch size chages with margins and paddinds not only height and width change.
 
 #### For more information 
 
