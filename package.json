@@ -1,10 +1,10 @@
 {
   "name": "mresizeind",
-  "version": "0.0.1",
+  "version": "1.0.2",
   "author": "Alex Rybak",
   "description": "Event based jQuery element resize fork of Malihu plugin",
   "license": "MIT",
-  "main": "./mresize.js",
+  "main": "mresize.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Steinmar/mresize.git"
