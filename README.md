@@ -13,7 +13,15 @@ npm: `npm install mresize`
 $(selector).on("mresize",function(){
 	console.log($(this));
 });
+
+$(selector).on("mresizeind",function(){
+	console.log($(this));
+});
 ```
+
+### Updates
+
+event mresizeind watch size chages with margins and paddinds not only height and width change.
 
 #### For more information 
 
