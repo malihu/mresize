@@ -67,5 +67,34 @@ THE SOFTWARE.
 			$(this).removeData("mresize").find(".resize").remove();
 		}
 	};
+
+	$.event.special.mresizeind={
+		add:function(){
+			console.log(arguments);
+			var el=$(this);
+
+			if(el.data("mresizeind")) return;
+			if(el.css("position")==="static") el.css("position","relative");
+			el
+				.append("<div class='mresizeind' style='position:absolute; width:auto; height:auto; top:0; right:0; bottom:0; left:0; margin:0; padding:0; overflow:hidden; visibility:hidden; z-index:-1'><iframe style='width:100%; height:0; border:0; visibility:visible; margin:0' /><iframe style='width:0; height:100%; border:0; visibility:visible; margin:0' /></div>")
+				.data("mresizeind",{"w":el.outerWidth(true),"h":el.outerHeight(true),t:null,throttle:100})
+				.find(".mresizeind iframe").each(function(){
+					$(this.contentWindow || this).on("resize",function(){
+						var d=el.data("mresizeind");
+						if(d.w!==el.outerWidth(true) || d.h!==el.outerHeight(true)){
+							if(d.t) clearTimeout(d.t);
+							d.t=setTimeout(function(){
+								el.triggerHandler("mresizeind");
+								d.w=el.outerWidth(true);
+								d.h=el.outerHeight(true);
+							},d.throttle);
+						}
+					});
+				});
+		},
+		remove:function(){
+			$(this).removeData("mresizeind").find(".mresizeind").remove();
+		}
+	};
 	
 }));
